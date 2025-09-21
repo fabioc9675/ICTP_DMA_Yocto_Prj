@@ -18,8 +18,8 @@
 # - the last subdirectory has the same name as the IP and that
 # - only .xci files are committed.
 #
-ip/*/*
-!ip/*/*.xci*
+#ip/*/*
+#!ip/*/*.xci*
 
 bd/*
 !bd/*.bd
