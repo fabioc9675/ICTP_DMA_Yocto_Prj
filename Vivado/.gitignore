@@ -58,7 +58,7 @@ DCPs/
 .Xil/
 .Xilinx/
 Projects/
-output/
+#output/
 lastbuilt.txt
 credentials.sh
 VivadoProject
