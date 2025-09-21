@@ -8,8 +8,7 @@
       "pfm_name": "Fabian:kr260_som:kria_bd:1.0",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2",
-      "validated": "true"
+      "tool_version": "2022.2"
     },
     "design_tree": {
       "axi_intc_0": "",
@@ -28,7 +27,8 @@
       "xlconcat_0": "",
       "xlconstant_0": "",
       "xlslice_0": "",
-      "zynq_ultra_ps_e_0": ""
+      "zynq_ultra_ps_e_0": "",
+      "ADQ_DataFifo_0": ""
     },
     "interface_ports": {
       "uf_leds": {
@@ -1987,6 +1987,12 @@
         "pfm_attributes": {
           "AXI_PORT": "M_AXI_HPM0_FPD {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} M_AXI_HPM1_FPD {memport \"M_AXI_GP\" sptag \"\" memory \"\" is_range \"false\"} S_AXI_HPC0_FPD {memport \"S_AXI_HPC\" sptag \"HPC0\" memory \"\" is_range \"false\"} S_AXI_HPC1_FPD {memport \"S_AXI_HPC\" sptag \"HPC1\" memory \"\" is_range \"false\"} S_AXI_HP0_FPD {memport \"S_AXI_HP\" sptag \"HP0\" memory \"\" is_range \"false\"} S_AXI_HP1_FPD {memport \"S_AXI_HP\" sptag \"HP1\" memory \"\" is_range \"false\"} S_AXI_HP2_FPD {memport \"S_AXI_HP\" sptag \"HP2\" memory \"\" is_range \"false\"} S_AXI_HP3_FPD {memport \"S_AXI_HP\" sptag \"HP3\" memory \"\" is_range \"false\"}"
         }
+      },
+      "ADQ_DataFifo_0": {
+        "vlnv": "FabianCastano:user:ADQ_DataFifo:1.0",
+        "xci_name": "kria_bd_ADQ_DataFifo_0_0",
+        "xci_path": "ip\\kria_bd_ADQ_DataFifo_0_0\\kria_bd_ADQ_DataFifo_0_0.xci",
+        "inst_hier_path": "ADQ_DataFifo_0"
       }
     },
     "interface_nets": {
