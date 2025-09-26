@@ -19,6 +19,7 @@ entity slow_control_axi_v1_0_S00_AXI is
 		counter    : in  std_logic_vector(31 downto 0);
         value      : out std_logic_vector(7 downto 0); -- valor a cargar en el registro de leds
         states     : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
+        sel_sig    : out std_logic_vector(3 downto 0); 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -497,7 +498,7 @@ begin
 	      when b"0100" =>
 	        reg_data_out <= slv_reg4; -- registro de valor
 	      when b"0101" =>
-	        reg_data_out <= slv_reg5;
+	        reg_data_out <= slv_reg5; -- registro de seleccion de senal
 	      when b"0110" =>
 	        reg_data_out <= slv_reg6;
 	      when b"0111" =>
@@ -545,6 +546,7 @@ begin
 	-- Add user logic here
 	value  <= slv_reg4(7 downto 0);
 	states <= slv_reg3;
+	sel_sig <= slv_reg5(3 downto 0);
 	-- User logic ends
 
 end arch_imp;

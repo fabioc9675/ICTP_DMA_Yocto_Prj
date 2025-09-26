@@ -19,6 +19,7 @@ entity slow_control_axi_v1_0 is
         counter    : in  std_logic_vector(31 downto 0);
         value      : out std_logic_vector(7 downto 0); -- valor a cargar en el registro de leds
         states     : out std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0); 
+        sel_sig    : out std_logic_vector(3 downto 0);
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -60,6 +61,7 @@ architecture arch_imp of slow_control_axi_v1_0 is
 		counter    : in  std_logic_vector(31 downto 0);
         value      : out std_logic_vector(7 downto 0); -- valor a cargar en el registro de leds
         states     : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
+        sel_sig    : out std_logic_vector(3 downto 0);
 		S_AXI_ACLK	: in std_logic;
 		S_AXI_ARESETN	: in std_logic;
 		S_AXI_AWADDR	: in std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
@@ -96,6 +98,7 @@ slow_control_axi_v1_0_S00_AXI_inst : slow_control_axi_v1_0_S00_AXI
 	    counter  => counter,
         value => value,
         states => states,
+        sel_sig => sel_sig,
 		S_AXI_ACLK	=> s00_axi_aclk,
 		S_AXI_ARESETN	=> s00_axi_aresetn,
 		S_AXI_AWADDR	=> s00_axi_awaddr,
