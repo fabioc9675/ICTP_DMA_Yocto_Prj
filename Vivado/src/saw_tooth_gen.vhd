@@ -33,7 +33,7 @@ begin
             saw_value <= (others => '0');
         elsif rising_edge(clk) then
             -- Incremento lineal
-            saw_value <= saw_value + 1;
+            saw_value <= saw_value + 256; 
         end if;
     end process;
 
