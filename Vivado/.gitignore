@@ -21,8 +21,9 @@
 #ip/*/*
 #!ip/*/*.xci*
 
-bd/*
-!bd/*.bd
+bd/*/*
+!bd/*/hdl*
+!bd/*/*.bd
 
 ## OS
 .DS_Store

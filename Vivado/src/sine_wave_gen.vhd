@@ -13,10 +13,14 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Declaracion de entidad principal
 entity sine_wave_gen is
+    Generic( dres : integer :=16;
+             start_index : integer range 0 to 255 :=0 -- to select different starting point
+             );
     Port ( 
             clk      : in  STD_LOGIC;
             rst      : in  STD_LOGIC;
-            sine_out : out STD_LOGIC_VECTOR (15 downto 0)
+            sine_out : out STD_LOGIC_VECTOR (dres - 1 downto 0);
+            last     : out std_logic
          );
 end sine_wave_gen;
 
@@ -66,14 +70,14 @@ begin
     process(clk, rst)
     begin
         if rst = '1' then
-            sine_index <= 0;
-            sine_value <= sine_table(0);
+            sine_index <= start_index;
+            sine_value <= sine_table(start_index);
         elsif rising_edge(clk) then
             -- Obtener el valor de la onda seno de la tabla
             sine_value <= sine_table(sine_index);
 
             -- Salida de datos (16 bits)
-            sine_out <= conv_std_logic_vector(sine_value, 16);
+            sine_out <= conv_std_logic_vector(sine_value, dres);
 
             -- Aumentar el indice de la tabla para el siguiente valor
             if sine_index = 255 then
@@ -83,5 +87,7 @@ begin
             end if;
         end if;
     end process;
+
+    last <= '1' when sine_index = start_index else '0';
 
 end Behavioral;
