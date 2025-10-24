@@ -548,5 +548,6 @@ begin
 	states <= slv_reg3;
 	sel_sig <= slv_reg5(3 downto 0);
 	-- User logic ends
+	
 
 end arch_imp;

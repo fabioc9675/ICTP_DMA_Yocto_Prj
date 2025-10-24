@@ -19,6 +19,7 @@ entity multiplex is
             wave_in_1 : in  std_logic_vector(15 downto 0); -- Entrada de onda 1
             wave_in_2 : in  std_logic_vector(15 downto 0); -- Entrada de onda 2
             wave_in_3 : in  std_logic_vector(15 downto 0); -- Entrada de onda 3 
+            wave_in_4 : in  std_logic_vector(15 downto 0); -- Entrada de onda 3 
             wave_out   : out STD_LOGIC_VECTOR (15 downto 0)
          );
 end multiplex;
@@ -36,11 +37,11 @@ begin
             when "0011" =>
                 wave_value <= wave_in_3; -- Onda 3
             when "0100" =>
-                wave_value <= X"FFFF"; -- Onda 4
+                wave_value <= wave_in_4; -- Onda 4
             when "0101" =>
-                wave_value <= X"00FF"; -- Onda 5
+                wave_value <= B"00" & (wave_in_1(15 downto 2) + wave_in_4(15 downto 2)); -- Onda 5
             when "0110" =>
-                wave_value <= X"0F0F"; -- Onda 6
+                wave_value <= B"00" & (wave_in_2(15 downto 2) - wave_in_3(15 downto 2)); -- Onda 6
             when "0111" =>
                 wave_value <= X"F0F0"; -- Onda 7
             when others =>
