@@ -6,11 +6,11 @@
       "name": "pynq_bd",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2",
-      "validated": "true"
+      "tool_version": "2022.2"
     },
     "design_tree": {
-      "processing_system7_0": ""
+      "processing_system7_0": "",
+      "comblock_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -1898,6 +1898,12 @@
             }
           }
         }
+      },
+      "comblock_0": {
+        "vlnv": "www.ictp.it:user:comblock:2.0",
+        "xci_name": "pynq_bd_comblock_0_0",
+        "xci_path": "ip\\pynq_bd_comblock_0_0\\pynq_bd_comblock_0_0.xci",
+        "inst_hier_path": "comblock_0"
       }
     },
     "interface_nets": {
