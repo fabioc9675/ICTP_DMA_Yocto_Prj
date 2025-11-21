@@ -20,7 +20,8 @@ entity sine_wave_gen is
             clk      : in  STD_LOGIC;
             rst      : in  STD_LOGIC;
             sine_out : out STD_LOGIC_VECTOR (dres - 1 downto 0);
-            last     : out std_logic
+            last     : out std_logic;
+            pos      : out std_logic_vector(7 downto 0)
          );
 end sine_wave_gen;
 
@@ -69,12 +70,13 @@ begin
     -- Proceso principal que genera la senal seno
     process(clk, rst)
     begin
-        if rst = '1' then
+        if rst = '0' then
             sine_index <= start_index;
             sine_value <= sine_table(start_index);
         elsif rising_edge(clk) then
             -- Obtener el valor de la onda seno de la tabla
             sine_value <= sine_table(sine_index);
+            pos <= conv_std_logic_vector(sine_index, 8);
 
             -- Salida de datos (16 bits)
             sine_out <= conv_std_logic_vector(sine_value, dres);
@@ -88,6 +90,6 @@ begin
         end if;
     end process;
 
-    last <= '1' when sine_index = start_index else '0';
+    last <= '1' when sine_index mod 7 = 0 else '0';
 
 end Behavioral;

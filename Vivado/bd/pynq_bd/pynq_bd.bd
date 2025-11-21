@@ -24,7 +24,13 @@
         }
       },
       "rst_ps7_0_100M": "",
-      "fifo_loop_0": ""
+      "fifo_loop_0": "",
+      "xlslice_0": "",
+      "bram_inc_0": "",
+      "mux_ram_0": "",
+      "edgeDetector_0": "",
+      "biexponential_0": "",
+      "sine_wave_gen_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -652,6 +658,9 @@
           },
           "PCW_INCLUDE_ACP_TRANS_CHECK": {
             "value": "0"
+          },
+          "PCW_IRQ_F2P_MODE": {
+            "value": "DIRECT"
           },
           "PCW_MIO_0_IOTYPE": {
             "value": "LVCMOS 3.3V"
@@ -1287,7 +1296,7 @@
             "value": "200"
           },
           "PCW_PERIPHERAL_BOARD_PRESET": {
-            "value": "None"
+            "value": "part0"
           },
           "PCW_PLL_BYPASSMODE_ENABLE": {
             "value": "0"
@@ -1411,6 +1420,18 @@
           },
           "PCW_SPI_PERIPHERAL_VALID": {
             "value": "0"
+          },
+          "PCW_S_AXI_HP0_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP1_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP2_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP3_DATA_WIDTH": {
+            "value": "64"
           },
           "PCW_TPIU_PERIPHERAL_CLKSRC": {
             "value": "External"
@@ -1923,6 +1944,15 @@
         "xci_path": "ip\\pynq_bd_comblock_0_0\\pynq_bd_comblock_0_0.xci",
         "inst_hier_path": "comblock_0",
         "parameters": {
+          "DRAM_IO_AWIDTH": {
+            "value": "11"
+          },
+          "DRAM_IO_DEPTH": {
+            "value": "1024"
+          },
+          "DRAM_IO_DWIDTH": {
+            "value": "32"
+          },
           "DRAM_IO_ENA": {
             "value": "true"
           },
@@ -1942,10 +1972,10 @@
             "value": "true"
           },
           "REGS_IN_DEPTH": {
-            "value": "3"
+            "value": "4"
           },
           "REGS_OUT_DEPTH": {
-            "value": "3"
+            "value": "4"
           }
         }
       },
@@ -2407,7 +2437,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "1e+08",
                 "value_src": "user_prop"
               },
               "PHASE": {
@@ -2446,6 +2476,284 @@
             "direction": "I"
           }
         }
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "pynq_bd_xlslice_0_0",
+        "xci_path": "ip\\pynq_bd_xlslice_0_0\\pynq_bd_xlslice_0_0.xci",
+        "inst_hier_path": "xlslice_0",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "1"
+          }
+        }
+      },
+      "bram_inc_0": {
+        "vlnv": "xilinx.com:module_ref:bram_inc:1.0",
+        "xci_name": "pynq_bd_bram_inc_0_0",
+        "xci_path": "ip\\pynq_bd_bram_inc_0_0\\pynq_bd_bram_inc_0_0.xci",
+        "inst_hier_path": "bram_inc_0",
+        "parameters": {
+          "BRAM_ADDRESS_SIZE": {
+            "value": "11"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bram_inc",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "bram_addr": {
+            "direction": "O",
+            "left": "10",
+            "right": "0"
+          },
+          "bram_dout": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "bram_we": {
+            "direction": "O"
+          },
+          "bram_din": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "peak_amp": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "peak_amp_rdy": {
+            "direction": "I"
+          },
+          "rstn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rstn",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "1e+08",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "pynq_bd_processing_system7_0_0_FCLK_CLK0",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
+      },
+      "mux_ram_0": {
+        "vlnv": "xilinx.com:module_ref:mux_ram:1.0",
+        "xci_name": "pynq_bd_mux_ram_0_0",
+        "xci_path": "ip\\pynq_bd_mux_ram_0_0\\pynq_bd_mux_ram_0_0.xci",
+        "inst_hier_path": "mux_ram_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "mux_ram",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sel": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "signal_1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "signal_2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "pos_1": {
+            "direction": "I"
+          },
+          "pos_2": {
+            "direction": "I"
+          },
+          "signal_o": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "pos_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "edgeDetector_0": {
+        "vlnv": "xilinx.com:module_ref:edgeDetector:1.0",
+        "xci_name": "pynq_bd_edgeDetector_0_0",
+        "xci_path": "ip\\pynq_bd_edgeDetector_0_0\\pynq_bd_edgeDetector_0_0.xci",
+        "inst_hier_path": "edgeDetector_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "edgeDetector",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "1e+08",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "pynq_bd_processing_system7_0_0_FCLK_CLK0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "arestn_i": {
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "pulseIn": {
+            "direction": "I"
+          },
+          "pulseOut": {
+            "direction": "O"
+          }
+        }
+      },
+      "biexponential_0": {
+        "vlnv": "xilinx.com:module_ref:biexponential:1.0",
+        "xci_name": "pynq_bd_biexponential_0_0",
+        "xci_path": "ip\\pynq_bd_biexponential_0_0\\pynq_bd_biexponential_0_0.xci",
+        "inst_hier_path": "biexponential_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "biexponential",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "1e+08",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "pynq_bd_processing_system7_0_0_FCLK_CLK0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "semi_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "last": {
+            "direction": "O"
+          },
+          "pos": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "sine_wave_gen_0": {
+        "vlnv": "xilinx.com:module_ref:sine_wave_gen:1.0",
+        "xci_name": "pynq_bd_sine_wave_gen_0_0",
+        "xci_path": "ip\\pynq_bd_sine_wave_gen_0_0\\pynq_bd_sine_wave_gen_0_0.xci",
+        "inst_hier_path": "sine_wave_gen_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sine_wave_gen",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "1e+08",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "pynq_bd_processing_system7_0_0_FCLK_CLK0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "sine_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "last": {
+            "direction": "O"
+          },
+          "pos": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -2481,6 +2789,36 @@
       }
     },
     "nets": {
+      "biexponential_0_last": {
+        "ports": [
+          "biexponential_0/last",
+          "mux_ram_0/pos_1"
+        ]
+      },
+      "biexponential_0_semi_out": {
+        "ports": [
+          "biexponential_0/semi_out",
+          "mux_ram_0/signal_1"
+        ]
+      },
+      "bram_inc_0_bram_addr": {
+        "ports": [
+          "bram_inc_0/bram_addr",
+          "comblock_0/ram_addr_i"
+        ]
+      },
+      "bram_inc_0_bram_din": {
+        "ports": [
+          "bram_inc_0/bram_din",
+          "comblock_0/ram_data_i"
+        ]
+      },
+      "bram_inc_0_bram_we": {
+        "ports": [
+          "bram_inc_0/bram_we",
+          "comblock_0/ram_we_i"
+        ]
+      },
       "comblock_0_fifo_data_o": {
         "ports": [
           "comblock_0/fifo_data_o",
@@ -2505,6 +2843,12 @@
           "fifo_loop_0/valid_i"
         ]
       },
+      "comblock_0_ram_data_o": {
+        "ports": [
+          "comblock_0/ram_data_o",
+          "bram_inc_0/bram_dout"
+        ]
+      },
       "comblock_0_reg0_o": {
         "ports": [
           "comblock_0/reg0_o",
@@ -2521,6 +2865,19 @@
         "ports": [
           "comblock_0/reg2_o",
           "comblock_0/reg0_i"
+        ]
+      },
+      "comblock_0_reg3_o": {
+        "ports": [
+          "comblock_0/reg3_o",
+          "xlslice_0/Din",
+          "comblock_0/reg3_i"
+        ]
+      },
+      "edgeDetector_0_pulseOut": {
+        "ports": [
+          "edgeDetector_0/pulseOut",
+          "bram_inc_0/peak_amp_rdy"
         ]
       },
       "fifo_loop_0_data_o": {
@@ -2541,6 +2898,18 @@
           "comblock_0/fifo_we_i"
         ]
       },
+      "mux_ram_0_pos_o": {
+        "ports": [
+          "mux_ram_0/pos_o",
+          "edgeDetector_0/pulseIn"
+        ]
+      },
+      "mux_ram_0_signal_o": {
+        "ports": [
+          "mux_ram_0/signal_o",
+          "bram_inc_0/peak_amp"
+        ]
+      },
       "processing_system7_0_FCLK_CLK0": {
         "ports": [
           "processing_system7_0/FCLK_CLK0",
@@ -2554,7 +2923,11 @@
           "ps7_0_axi_periph/M01_ACLK",
           "comblock_0/ram_clk_i",
           "comblock_0/fifo_clk_i",
-          "fifo_loop_0/clk_i"
+          "fifo_loop_0/clk_i",
+          "bram_inc_0/clk",
+          "edgeDetector_0/clk_i",
+          "biexponential_0/clk",
+          "sine_wave_gen_0/clk"
         ]
       },
       "processing_system7_0_FCLK_RESET0_N": {
@@ -2571,7 +2944,29 @@
           "ps7_0_axi_periph/M00_ARESETN",
           "ps7_0_axi_periph/ARESETN",
           "comblock_0/axil_aresetn",
-          "ps7_0_axi_periph/M01_ARESETN"
+          "ps7_0_axi_periph/M01_ARESETN",
+          "bram_inc_0/rstn",
+          "edgeDetector_0/arestn_i",
+          "biexponential_0/rst",
+          "sine_wave_gen_0/rst"
+        ]
+      },
+      "sine_wave_gen_0_last": {
+        "ports": [
+          "sine_wave_gen_0/last",
+          "mux_ram_0/pos_2"
+        ]
+      },
+      "sine_wave_gen_0_sine_out": {
+        "ports": [
+          "sine_wave_gen_0/sine_out",
+          "mux_ram_0/signal_2"
+        ]
+      },
+      "xlslice_0_Dout": {
+        "ports": [
+          "xlslice_0/Dout",
+          "mux_ram_0/sel"
         ]
       }
     },
