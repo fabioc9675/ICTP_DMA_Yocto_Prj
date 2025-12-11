@@ -34,19 +34,20 @@
         "proc_sys_reset_3": ""
       },
       "axi_smc": "",
-      "sine_wave_gen_0": "",
       "ADQ_platform": {
         "ADQ_DataFifo_0": "",
         "axi_dma_0": ""
       },
-      "semicircle_wave_gen_0": "",
-      "multiplex_0": "",
-      "sawtooth_wave_gen_0": "",
-      "slow_control_axi_0": "",
       "led_fsm_0": "",
       "xlslice_1": "",
       "contador_0": "",
-      "xlconstant_0": ""
+      "xlconstant_0": "",
+      "sawtooth_wave_gen_0": "",
+      "sine_wave_gen_0": "",
+      "slow_control_axi_0": "",
+      "semicircle_wave_gen_0": "",
+      "biexponential_0": "",
+      "multiplex_0": ""
     },
     "interface_ports": {
       "uf_leds": {
@@ -2359,50 +2360,6 @@
           }
         }
       },
-      "sine_wave_gen_0": {
-        "vlnv": "xilinx.com:module_ref:sine_wave_gen:1.0",
-        "xci_name": "axi_full_bd_sine_wave_gen_0_0",
-        "xci_path": "ip\\axi_full_bd_sine_wave_gen_0_0\\axi_full_bd_sine_wave_gen_0_0.xci",
-        "inst_hier_path": "sine_wave_gen_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "sine_wave_gen",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "19999800",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "axi_full_bd_clk_wiz_0_0_clk_out1",
-                "value_src": "ip_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "sine_out": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
       "ADQ_platform": {
         "interface_ports": {
           "S_AXI_LITE": {
@@ -2547,138 +2504,6 @@
           }
         }
       },
-      "semicircle_wave_gen_0": {
-        "vlnv": "xilinx.com:module_ref:semicircle_wave_gen:1.0",
-        "xci_name": "axi_full_bd_semicircle_wave_gen_0_0",
-        "xci_path": "ip\\axi_full_bd_semicircle_wave_gen_0_0\\axi_full_bd_semicircle_wave_gen_0_0.xci",
-        "inst_hier_path": "semicircle_wave_gen_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "semicircle_wave_gen",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "19999800",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "axi_full_bd_clk_wiz_0_0_clk_out1",
-                "value_src": "ip_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "semi_out": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
-      "multiplex_0": {
-        "vlnv": "xilinx.com:module_ref:multiplex:1.0",
-        "xci_name": "axi_full_bd_multiplex_0_0",
-        "xci_path": "ip\\axi_full_bd_multiplex_0_0\\axi_full_bd_multiplex_0_0.xci",
-        "inst_hier_path": "multiplex_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "multiplex",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "sel": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
-          "wave_in_1": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "wave_in_2": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "wave_in_3": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "wave_out": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
-      "sawtooth_wave_gen_0": {
-        "vlnv": "xilinx.com:module_ref:sawtooth_wave_gen:1.0",
-        "xci_name": "axi_full_bd_sawtooth_wave_gen_0_0",
-        "xci_path": "ip\\axi_full_bd_sawtooth_wave_gen_0_0\\axi_full_bd_sawtooth_wave_gen_0_0.xci",
-        "inst_hier_path": "sawtooth_wave_gen_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "sawtooth_wave_gen",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "19999800",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "axi_full_bd_clk_wiz_0_0_clk_out1",
-                "value_src": "ip_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "saw_out": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
-      "slow_control_axi_0": {
-        "vlnv": "xilinx.com:user:slow_control_axi:1.0",
-        "xci_name": "axi_full_bd_slow_control_axi_0_0",
-        "xci_path": "ip\\axi_full_bd_slow_control_axi_0_0\\axi_full_bd_slow_control_axi_0_0.xci",
-        "inst_hier_path": "slow_control_axi_0"
-      },
       "led_fsm_0": {
         "vlnv": "xilinx.com:module_ref:led_fsm:1.0",
         "xci_name": "axi_full_bd_led_fsm_0_0",
@@ -2810,6 +2635,234 @@
             "value": "0"
           }
         }
+      },
+      "sawtooth_wave_gen_0": {
+        "vlnv": "xilinx.com:module_ref:sawtooth_wave_gen:1.0",
+        "xci_name": "axi_full_bd_sawtooth_wave_gen_0_0",
+        "xci_path": "ip\\axi_full_bd_sawtooth_wave_gen_0_0\\axi_full_bd_sawtooth_wave_gen_0_0.xci",
+        "inst_hier_path": "sawtooth_wave_gen_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sawtooth_wave_gen",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "19999800",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "axi_full_bd_clk_wiz_0_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "saw_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "sine_wave_gen_0": {
+        "vlnv": "xilinx.com:module_ref:sine_wave_gen:1.0",
+        "xci_name": "axi_full_bd_sine_wave_gen_0_0",
+        "xci_path": "ip\\axi_full_bd_sine_wave_gen_0_0\\axi_full_bd_sine_wave_gen_0_0.xci",
+        "inst_hier_path": "sine_wave_gen_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sine_wave_gen",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "19999800",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "axi_full_bd_clk_wiz_0_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "sine_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "last": {
+            "direction": "O"
+          }
+        }
+      },
+      "slow_control_axi_0": {
+        "vlnv": "xilinx.com:user:slow_control_axi:1.0",
+        "xci_name": "axi_full_bd_slow_control_axi_0_0",
+        "xci_path": "ip\\axi_full_bd_slow_control_axi_0_0\\axi_full_bd_slow_control_axi_0_0.xci",
+        "inst_hier_path": "slow_control_axi_0"
+      },
+      "semicircle_wave_gen_0": {
+        "vlnv": "xilinx.com:module_ref:semicircle_wave_gen:1.0",
+        "xci_name": "axi_full_bd_semicircle_wave_gen_0_0",
+        "xci_path": "ip\\axi_full_bd_semicircle_wave_gen_0_0\\axi_full_bd_semicircle_wave_gen_0_0.xci",
+        "inst_hier_path": "semicircle_wave_gen_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "semicircle_wave_gen",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "19999800",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "axi_full_bd_clk_wiz_0_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "semi_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "biexponential_0": {
+        "vlnv": "xilinx.com:module_ref:biexponential:1.0",
+        "xci_name": "axi_full_bd_biexponential_0_0",
+        "xci_path": "ip\\axi_full_bd_biexponential_0_0\\axi_full_bd_biexponential_0_0.xci",
+        "inst_hier_path": "biexponential_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "biexponential",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "19999800",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "axi_full_bd_clk_wiz_0_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "semi_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "multiplex_0": {
+        "vlnv": "xilinx.com:module_ref:multiplex:1.0",
+        "xci_name": "axi_full_bd_multiplex_0_0",
+        "xci_path": "ip\\axi_full_bd_multiplex_0_0\\axi_full_bd_multiplex_0_0.xci",
+        "inst_hier_path": "multiplex_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "multiplex",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sel": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "wave_in_1": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "wave_in_2": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "wave_in_3": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "wave_in_4": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "wave_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -2875,6 +2928,12 @@
           "zynq_ultra_ps_e_0/pl_ps_irq0"
         ]
       },
+      "biexponential_0_semi_out": {
+        "ports": [
+          "biexponential_0/semi_out",
+          "multiplex_0/wave_in_4"
+        ]
+      },
       "clk_wiz_0_clk_out2": {
         "ports": [
           "clock_gen/clk_200M",
@@ -2890,18 +2949,19 @@
           "axi_smc/aclk",
           "ADQ_platform/s_axi_lite_aclk",
           "ps8_0_axi_periph/M03_ACLK",
-          "slow_control_axi_0/s00_axi_aclk",
           "led_fsm_0/clk",
-          "contador_0/clk"
+          "contador_0/clk",
+          "slow_control_axi_0/s00_axi_aclk"
         ]
       },
       "clock_gen_clk_out3": {
         "ports": [
           "clock_gen/clk_20M",
-          "sine_wave_gen_0/clk",
           "ADQ_platform/clk_adc",
+          "sawtooth_wave_gen_0/clk",
+          "sine_wave_gen_0/clk",
           "semicircle_wave_gen_0/clk",
-          "sawtooth_wave_gen_0/clk"
+          "biexponential_0/clk"
         ]
       },
       "contador_0_cont": {
@@ -2935,9 +2995,9 @@
           "axi_smc/aresetn",
           "ADQ_platform/axi_resetn",
           "ps8_0_axi_periph/M03_ARESETN",
-          "slow_control_axi_0/s00_axi_aresetn",
           "led_fsm_0/reset",
-          "contador_0/rst"
+          "contador_0/rst",
+          "slow_control_axi_0/s00_axi_aresetn"
         ]
       },
       "sawtooth_wave_gen_0_saw_out1": {
@@ -2986,8 +3046,9 @@
         "ports": [
           "xlconstant_0/dout",
           "sawtooth_wave_gen_0/rst",
+          "sine_wave_gen_0/rst",
           "semicircle_wave_gen_0/rst",
-          "sine_wave_gen_0/rst"
+          "biexponential_0/rst"
         ]
       },
       "xlslice_0_Dout": {
