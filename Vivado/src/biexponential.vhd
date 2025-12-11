@@ -10,7 +10,9 @@ entity biexponential is
     Port ( 
             clk        : in  STD_LOGIC;
             rst        : in  STD_LOGIC;
-            semi_out   : out STD_LOGIC_VECTOR (15 downto 0)
+            semi_out   : out STD_LOGIC_VECTOR (15 downto 0);
+            last       : out std_logic;
+            pos        : out std_logic_vector(7 downto 0)
          );
 end biexponential;
 
@@ -58,12 +60,13 @@ architecture Behavioral of biexponential is
 begin
     process(clk, rst)
     begin
-        if rst = '1' then
+        if rst = '0' then
             idx <= 0;
             val <= bi_exp_table(0);
         elsif rising_edge(clk) then
             val <= bi_exp_table(idx);
             semi_out <= conv_std_logic_vector(val, 16);
+            pos <= conv_std_logic_vector(idx, 8);
 
             if idx = 255 then
                 idx <= 0;
@@ -72,4 +75,7 @@ begin
             end if;
         end if;
     end process;
+
+    last <= '1' when idx mod 7 = 0 else '0';
+
 end Behavioral;
